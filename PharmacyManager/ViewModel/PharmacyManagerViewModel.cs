@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PharmacyManager.ViewModel
 {
-    class Class1
+    class PharmacyManagerViewModel
     {
     }
 }
