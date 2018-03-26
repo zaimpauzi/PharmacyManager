@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PharmacyManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Pharmacy Manager" Height="350" Width="525">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"></ColumnDefinition>
@@ -23,8 +23,11 @@
             <RowDefinition Height="10"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="No. I/C:" Grid.Row="1" Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Arial Black"></TextBlock>
+        <TextBlock Text="No. I/C : " Grid.Row="1" Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Arial Black"></TextBlock>
         <Button x:Name="ICInput" Content="Cari"  Grid.Row="1" Grid.Column="4" FontSize="16" VerticalAlignment="Stretch"></Button>
         <TextBox Grid.Row="1" Grid.Column="2" VerticalAlignment="Stretch"></TextBox>
+
+        <TextBlock Text="Nama  : " Grid.Row="2" Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Arial Black"></TextBlock>
+        <TextBlock Text="" Grid.Row="2" Grid.Column="2" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Arial Black"></TextBlock>
     </Grid>
 </Window>
