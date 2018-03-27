@@ -25,7 +25,7 @@ namespace PharmacyManager
         {
             InitializeComponent();
             var vm = new PharmacyManager.PharmacyManagerViewModel();
-            PatientObject Patient = vm.GetPatientObject("aa2");
+            var Patient = vm.GetPatientObject("aa2");
             
         }
     }
