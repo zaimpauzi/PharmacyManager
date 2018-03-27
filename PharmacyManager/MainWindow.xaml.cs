@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace PharmacyManager
 {
     /// <summary>
@@ -23,6 +24,9 @@ namespace PharmacyManager
         public MainWindow()
         {
             InitializeComponent();
+            var vm = new PharmacyManager.PharmacyManagerViewModel();
+            PatientObject Patient = vm.GetPatientObject("aa2");
+            
         }
     }
 }
