@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 using System.Windows;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.IO;
+using PharmacyManager.Commands;
+using PharmacyManager.Models;
+using System.Windows.Input;
 
-namespace PharmacyManager
+namespace PharmacyManager.ViewModels
 {
-    class PharmacyManagerViewModel
+    class PharmacyManagerViewModel : ViewModelBase
     {
 
         private string str;

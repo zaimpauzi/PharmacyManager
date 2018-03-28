@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PharmacyManager
+namespace PharmacyManager.Models
 {
     public class PatientObject
 
