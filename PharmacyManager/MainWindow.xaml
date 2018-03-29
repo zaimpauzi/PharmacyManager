@@ -4,8 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PharmacyManager"
+        xmlns:local1="clr-namespace:PharmacyManager.ViewModels"
         mc:Ignorable="d"
-        Title="Pharmacy Manager" Height="350" Width="525">
+        Title="Pharmacy Manager" Height="530" Width="525" Background="#FFFFB9B9">
+
+    <Window.DataContext>
+        <local1:PharmacyManagerViewModel/>
+    </Window.DataContext>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"></ColumnDefinition>
@@ -19,15 +25,116 @@
             <RowDefinition Height="10"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="10*"></RowDefinition>
-            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
 
         <TextBlock Text="No. I/C : " Grid.Row="1" Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Arial Black"></TextBlock>
-        <Button x:Name="ICInput" Content="Cari"  Grid.Row="1" Grid.Column="4" FontSize="16" VerticalAlignment="Stretch"></Button>
-        <TextBox Grid.Row="1" Grid.Column="2" VerticalAlignment="Stretch"></TextBox>
+        <Button x:Name="ICInput" Content="Cari"  Grid.Row="1" Grid.Column="4" FontSize="16" VerticalAlignment="Stretch" Command="{Binding Path=SearchCommand}"></Button>
+        <TextBox Text="{Binding Path=ICInput, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="2" VerticalAlignment="Stretch" Background="White"></TextBox>
 
         <TextBlock Text="Nama  : " Grid.Row="2" Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Arial Black"></TextBlock>
-        <TextBlock Text="" Grid.Row="2" Grid.Column="2" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Arial Black"></TextBlock>
+        <TextBox Text="{Binding Path=PrintName, Mode=OneWay}" IsReadOnly="True" Grid.Row="2" Grid.Column="2" FontSize="16" VerticalAlignment="Stretch" FontFamily="Arial Black"></TextBox>
+
+        <TextBlock Text="Jenis Ubat" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" FontSize="16" HorizontalAlignment="Center" FontFamily="Arial Black"></TextBlock>
+        <TextBlock Text="Kuantiti" Grid.Row="4" Grid.Column="4" FontSize="16" HorizontalAlignment="Center" FontFamily="Arial Black"></TextBlock>
+
+        <TextBox Text="{Binding Path=PrintMed1, Mode=OneWay}" IsReadOnly="True" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" FontSize="16" VerticalAlignment="Stretch" FontFamily="Arial Black"></TextBox>
+        <ComboBox Grid.Row="5" Grid.Column="4" HorizontalAlignment = "Stretch" 
+         VerticalAlignment = "Stretch">
+            <ComboBoxItem Content = "5" />
+            <ComboBoxItem Content = "10" />
+            <ComboBoxItem Content = "15" />
+        </ComboBox>
+        
+        <TextBox Text="{Binding Path=PrintMed2, Mode=OneWay}" IsReadOnly="True" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" FontSize="16" VerticalAlignment="Stretch" FontFamily="Arial Black"></TextBox>
+        <ComboBox Grid.Row="6" Grid.Column="4" HorizontalAlignment = "Stretch" 
+         VerticalAlignment = "Stretch">
+            <ComboBoxItem Content = "5" />
+            <ComboBoxItem Content = "10" />
+            <ComboBoxItem Content = "15" />
+        </ComboBox>
+        
+        <TextBox Text="{Binding Path=PrintMed3, Mode=OneWay}" IsReadOnly="True" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" FontSize="16" VerticalAlignment="Stretch" FontFamily="Arial Black"></TextBox>
+        <ComboBox Grid.Row="7" Grid.Column="4" HorizontalAlignment = "Stretch" 
+         VerticalAlignment = "Stretch">
+            <ComboBoxItem Content = "5" />
+            <ComboBoxItem Content = "10" />
+            <ComboBoxItem Content = "15" />
+        </ComboBox>
+        
+        <TextBox Text="{Binding Path=PrintMed4, Mode=OneWay}" IsReadOnly="True" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" FontSize="16" VerticalAlignment="Stretch" FontFamily="Arial Black"></TextBox>
+        <ComboBox Grid.Row="8" Grid.Column="4" HorizontalAlignment = "Stretch" 
+         VerticalAlignment = "Stretch">
+            <ComboBoxItem Content = "5" />
+            <ComboBoxItem Content = "10" />
+            <ComboBoxItem Content = "15" />
+        </ComboBox>
+        
+        <TextBox Text="{Binding Path=PrintMed5, Mode=OneWay}" IsReadOnly="True" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" FontSize="16" VerticalAlignment="Stretch" FontFamily="Arial Black"></TextBox>
+        <ComboBox Grid.Row="9" Grid.Column="4" HorizontalAlignment = "Stretch" 
+         VerticalAlignment = "Stretch">
+            <ComboBoxItem Content = "5" />
+            <ComboBoxItem Content = "10" />
+            <ComboBoxItem Content = "15" />
+        </ComboBox>
+        
+        <TextBox Text="{Binding Path=PrintMed6, Mode=OneWay}" IsReadOnly="True" Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2" FontSize="16" VerticalAlignment="Stretch" FontFamily="Arial Black"></TextBox>
+        <ComboBox Grid.Row="10" Grid.Column="4" HorizontalAlignment = "Stretch" 
+         VerticalAlignment = "Stretch">
+            <ComboBoxItem Content = "5" />
+            <ComboBoxItem Content = "10" />
+            <ComboBoxItem Content = "15" />
+        </ComboBox>
+        
+        <TextBox Text="{Binding Path=PrintMed7, Mode=OneWay}" IsReadOnly="True" Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="2" FontSize="16" VerticalAlignment="Stretch" FontFamily="Arial Black"></TextBox>
+        <ComboBox Grid.Row="11" Grid.Column="4" HorizontalAlignment = "Stretch" 
+         VerticalAlignment = "Stretch">
+            <ComboBoxItem Content = "5" />
+            <ComboBoxItem Content = "10" />
+            <ComboBoxItem Content = "15" />
+        </ComboBox>
+        
+        <TextBox Text="{Binding Path=PrintMed8, Mode=OneWay}" IsReadOnly="True" Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="2" FontSize="16" VerticalAlignment="Stretch" FontFamily="Arial Black"></TextBox>
+        <ComboBox Grid.Row="12" Grid.Column="4" HorizontalAlignment = "Stretch" 
+         VerticalAlignment = "Stretch">
+            <ComboBoxItem Content = "5" />
+            <ComboBoxItem Content = "10" />
+            <ComboBoxItem Content = "15" />
+        </ComboBox>
+        
+        <TextBox Text="{Binding Path=PrintMed9, Mode=OneWay}" IsReadOnly="True" Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="2" FontSize="16" VerticalAlignment="Stretch" FontFamily="Arial Black"></TextBox>
+        <ComboBox Grid.Row="13" Grid.Column="4" HorizontalAlignment = "Stretch" 
+         VerticalAlignment = "Stretch">
+            <ComboBoxItem Content = "5" />
+            <ComboBoxItem Content = "10" />
+            <ComboBoxItem Content = "15" />
+        </ComboBox>
+        
+        <TextBox Text="{Binding Path=PrintMed10, Mode=OneWay}" IsReadOnly="True" Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="2" FontSize="16" VerticalAlignment="Stretch" FontFamily="Arial Black"></TextBox>
+        <ComboBox Grid.Row="14" Grid.Column="4" HorizontalAlignment = "Stretch" 
+         VerticalAlignment = "Stretch">
+            <ComboBoxItem Content = "5" />
+            <ComboBoxItem Content = "10" />
+            <ComboBoxItem Content = "15" />
+        </ComboBox>
+        
+        <Button x:Name="Clear" Content="Padam"  Grid.Row="16" Grid.Column="2" FontSize="16" HorizontalAlignment="Left" Command="{Binding Path=ClearCommand}" Width="100" Height="30"/>
+     
+        <Button x:Name="Print" Content="Cetak"  Grid.Row="16" Grid.Column="2" FontSize="16" HorizontalAlignment="Right" Width="100" Height="30"/>
+   
+
     </Grid>
 </Window>
