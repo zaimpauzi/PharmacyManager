@@ -7,20 +7,40 @@ using PharmacyManager.Models;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Windows;
 
 namespace PharmacyManager.ViewModels
 {
     public class GetObjectsViewModel
     {
-        private string str;
-        private string[] med = new string[13];
-        private int rCnt;
-        private int cCnt;
-        private int rw = 0;
-        private int cl = 0;
 
-        public PatientObject GetPatientObject(string ic)
+        public List<MedicineObject> GetMedicineList()
         {
+            List<MedicineObject> medicineList = new List<MedicineObject>();
+            medicineList.Add(new MedicineObject("nameA", "unitA", "minA", "maxA"));
+            medicineList.Add(new MedicineObject("nameB", "unitB", "minB", "maxB"));
+
+            //foreach (var item in medicineList)
+            //{
+
+            //    MessageBox.Show(item.Name);
+
+            //}
+            return medicineList;
+
+        }
+        public PatientObject GetPatientObject(string ic, List<MedicineObject> medicineList)
+        {
+            string str;
+            string[] med = new string[13];
+            string[] medName = new string[9];
+            string[] medMax = new string[9];
+            string[] medMin = new string[9];
+            string[] medUnit = new string[9];
+            int rCnt;
+            int cCnt;
+            int rw = 0;
+            int cl = 0;
             string currentDir = Environment.CurrentDirectory;
             string filePath = "Database.xlsx";
             string fullPath = Path.Combine(currentDir, filePath);
@@ -44,11 +64,25 @@ namespace PharmacyManager.ViewModels
                     for (cCnt = 2; cCnt <= cl; cCnt++)
                     {
                         med[cCnt] = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
-                        //MessageBox.Show(med[cCnt]);
+                        
+                        if (cCnt > 2)
+                        { 
+                            
+                            foreach (var medicine in medicineList)
+                            {
+                                if (med[cCnt] == medicine.Name)
+                                {
+                                    medMin[cCnt - 4] = medicine.MinQuantity;
+                                    medMax[cCnt - 4] = medicine.MaxQuantity;
+                                    medUnit[cCnt - 4] = medicine.Unit;
+                                }
+                            }
+                        }
                     }
                     isExist = true;
                 }
             }
+       
 
             patientObject.Name = med[2];
             patientObject.Medicine1 = med[3];
@@ -78,13 +112,6 @@ namespace PharmacyManager.ViewModels
             }
         }
 
-        public MedicineObject GetMedicineObject()
-        {
-            var medicineObject = new MedicineObject();
-         
-
-
-            return medicineObject;
-        }
+      
     }
 }

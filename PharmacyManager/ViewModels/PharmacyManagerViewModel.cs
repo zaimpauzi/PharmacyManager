@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using System.Windows;
 using PharmacyManager.Commands;
 using System.Windows.Input;
+using PharmacyManager.Models;
 
 namespace PharmacyManager.ViewModels
 {
     class PharmacyManagerViewModel : ViewModelBase
     {
-
+        private List<MedicineObject> MedicineList;
         private string icInput;
-
         private DelegateCommand searchCommand;
         private DelegateCommand clearCommand;
         private string printName;
@@ -27,6 +27,13 @@ namespace PharmacyManager.ViewModels
         private string printMed8;
         private string printMed9;
         private string printMed10;
+
+        //Contructor
+        public PharmacyManagerViewModel()
+        {
+            var GetMedicineList = new GetObjectsViewModel();  //Initialize GetObject class
+            MedicineList = GetMedicineList.GetMedicineList(); //Get list of medicine available in excel. It will store in List variable for entire application running.
+        }
 
         public string ICInput
         {
@@ -48,9 +55,10 @@ namespace PharmacyManager.ViewModels
 
         private void isSearch()
         {
-
+          
             var GetObject = new GetObjectsViewModel();
-            var Patient = GetObject.GetPatientObject(icInput);
+            
+            var Patient = GetObject.GetPatientObject(icInput, MedicineList);
             if (Patient != null)
             {
                 PrintName = Patient.Name;
