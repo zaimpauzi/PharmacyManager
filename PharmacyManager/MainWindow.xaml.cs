@@ -28,7 +28,7 @@ namespace PharmacyManager
             //var vm = new PharmacyManager.ViewModels.PharmacyManagerViewModel();
             //var vm = (PharmacyManagerViewModel)base.DataContext;
             //var Patient = vm.GetPatientObject("aa2");
-
+            
         }
     }
 }

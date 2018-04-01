@@ -52,11 +52,9 @@
         <TextBlock Text="Kuantiti" Grid.Row="4" Grid.Column="4" FontSize="16" HorizontalAlignment="Center" FontFamily="Arial Black"></TextBlock>
 
         <TextBox Text="{Binding Path=PrintMed1, Mode=OneWay}" IsReadOnly="True" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" FontSize="16" VerticalAlignment="Stretch" FontFamily="Arial Black"></TextBox>
-        <ComboBox Grid.Row="5" Grid.Column="4" HorizontalAlignment = "Stretch" 
-         VerticalAlignment = "Stretch">
-            <ComboBoxItem Content = "5" />
-            <ComboBoxItem Content = "10" />
-            <ComboBoxItem Content = "15" />
+        <ComboBox x:Name="combo1" Grid.Row="5" Grid.Column="4" HorizontalAlignment = "Stretch"  
+         VerticalAlignment = "Stretch"  ItemsSource="{Binding Path=QuantityList1}" SelectedItem="{Binding Path=SQuantityList1}" >
+            
         </ComboBox>
         
         <TextBox Text="{Binding Path=PrintMed2, Mode=OneWay}" IsReadOnly="True" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" FontSize="16" VerticalAlignment="Stretch" FontFamily="Arial Black"></TextBox>

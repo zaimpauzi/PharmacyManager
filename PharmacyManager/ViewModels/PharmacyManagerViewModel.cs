@@ -7,6 +7,7 @@ using System.Windows;
 using PharmacyManager.Commands;
 using System.Windows.Input;
 using PharmacyManager.Models;
+using System.Collections.ObjectModel;
 
 namespace PharmacyManager.ViewModels
 {
@@ -27,6 +28,10 @@ namespace PharmacyManager.ViewModels
         private string printMed8;
         private string printMed9;
         private string printMed10;
+
+        private int _sQuantityList1;
+        private ObservableCollection<int> quantityList1;
+
 
         //Contructor
         public PharmacyManagerViewModel()
@@ -72,6 +77,8 @@ namespace PharmacyManager.ViewModels
                 PrintMed8 = Patient.Medicine8;
                 PrintMed9 = Patient.Medicine9;
                 PrintMed10 = Patient.Medicine10;
+
+                QuantityList1 = QuantityLister(Convert.ToInt32(Patient.MedMin1), Convert.ToInt32(Patient.MedMax1));
             }
 
             else
@@ -223,9 +230,43 @@ namespace PharmacyManager.ViewModels
                 PrintMed8 = string.Empty;
                 PrintMed9 = string.Empty;
                 PrintMed10 = string.Empty;
+                QuantityList1.Clear();
         }
 
-        
+     
+        public int SQuantityList1
+        {
+            get { return _sQuantityList1;}
+            set { _sQuantityList1 = value; }
+        }
+
+        public ObservableCollection<int> QuantityList1
+        {
+            get { return quantityList1; }
+            set
+            {
+                if (quantityList1 == value)
+                {
+                    return;
+                }
+                quantityList1 = value;
+                OnPropertyChanged("quantityList1");
+            }
+        }
+
+
+
+
+        public ObservableCollection<int> QuantityLister(int _min, int _max)
+        {
+            _max = (_max + 1);
+            ObservableCollection<int> quantityList = new ObservableCollection<int>();
+            for (int i = _min; i < _max; i++)
+            {
+                quantityList.Add(i);
+            }
+            return quantityList;
+        }
 
     }
 }
