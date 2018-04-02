@@ -104,6 +104,7 @@ namespace PharmacyManager.ViewModels
                 OnPropertyChanged("printName");
             }
         }
+
         public string PrintMed1
         {
             get { return printMed1; }
