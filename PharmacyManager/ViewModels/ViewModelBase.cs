@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PharmacyManager.ViewModels
+namespace PharmacyManager.Models
 {
     /// <summary>
     /// Provides common functionality for ViewModel class

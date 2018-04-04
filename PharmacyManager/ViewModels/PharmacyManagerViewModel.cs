@@ -18,19 +18,9 @@ namespace PharmacyManager.ViewModels
         private DelegateCommand searchCommand;
         private DelegateCommand clearCommand;
         private string printName;
-        private string printMed1;
-        private string printMed2;
-        private string printMed3;
-        private string printMed4;
-        private string printMed5;
-        private string printMed6;
-        private string printMed7;
-        private string printMed8;
-        private string printMed9;
-        private string printMed10;
-
-        private int _sQuantityList1;
-        private ObservableCollection<int> quantityList1;
+        private ObservableCollection<DataGridObject> dataGridList = new ObservableCollection<DataGridObject>();
+        private int _sQuantity;
+        //private ObservableCollection<int> quantityy = new ObservableCollection<int>();
 
 
         //Contructor
@@ -62,23 +52,31 @@ namespace PharmacyManager.ViewModels
         {
           
             var GetObject = new GetObjectsViewModel();
-            
+            //ObservableCollection<Medicine> _listOfMedicineName = new ObservableCollection<Medicine>();
             var Patient = GetObject.GetPatientObject(icInput, MedicineList);
             if (Patient != null)
             {
+               
+                ObservableCollection<int> Quantity = new ObservableCollection<int>();
                 PrintName = Patient.Name;
-                PrintMed1 = Patient.Medicine1;
-                PrintMed2 = Patient.Medicine2;
-                PrintMed3 = Patient.Medicine3;
-                PrintMed4 = Patient.Medicine4;
-                PrintMed5 = Patient.Medicine5;
-                PrintMed6 = Patient.Medicine6;
-                PrintMed7 = Patient.Medicine7;
-                PrintMed8 = Patient.Medicine8;
-                PrintMed9 = Patient.Medicine9;
-                PrintMed10 = Patient.Medicine10;
+                //_listOfMedicineName = Patient.medicine;
+                //foreach (Medicine medicineName in Patient.medicine)
+                //{
+                //    _listOfMedicineName.Add(medicineName.medicine);
+                //}
 
-                QuantityList1 = QuantityLister(Convert.ToInt32(Patient.MedMin1), Convert.ToInt32(Patient.MedMax1));
+
+                foreach (Medicine _medicine in Patient.medicine)
+                {
+                    var DataGrid = new DataGridObject();
+                    DataGrid.DGMedName = _medicine.Name;
+                    DataGrid.DGUnit = _medicine.Unit;
+                    Quantity = QuantityLister(Int32.Parse(_medicine.Min), Int32.Parse(_medicine.Max));
+                    DataGrid.DGQuantity = Quantity;
+                    DataGridList.Add(DataGrid);
+
+                }
+
             }
 
             else
@@ -101,109 +99,20 @@ namespace PharmacyManager.ViewModels
             set
             {
                 printName = value;
-                OnPropertyChanged("printName");
+                OnPropertyChanged("PrintName");
             }
         }
 
-        public string PrintMed1
+        public ObservableCollection<DataGridObject> DataGridList
         {
-            get { return printMed1; }
+            get { return dataGridList; }
             set
             {
-                printMed1 = value;
-                OnPropertyChanged("printMed1");
+                dataGridList = value;
+                OnPropertyChanged("DataGridList");
             }
         }
 
-        public string PrintMed2
-        {
-            get { return printMed2; }
-            set
-            {
-                printMed2 = value;
-                OnPropertyChanged("printMed2");
-            }
-        }
-
-        public string PrintMed3
-        {
-            get { return printMed3; }
-            set
-            {
-                printMed3 = value;
-                OnPropertyChanged("printMed3");
-            }
-        }
-
-        public string PrintMed4
-        {
-            get { return printMed4; }
-            set
-            {
-                printMed4 = value;
-                OnPropertyChanged("printMed4");
-            }
-        }
-
-        public string PrintMed5
-        {
-            get { return printMed5; }
-            set
-            {
-                printMed5 = value;
-                OnPropertyChanged("printMed5");
-            }
-        }
-
-        public string PrintMed6
-        {
-            get { return printMed6; }
-            set
-            {
-                printMed6 = value;
-                OnPropertyChanged("printMed6");
-            }
-        }
-
-        public string PrintMed7
-        {
-            get { return printMed7; }
-            set
-            {
-                printMed7 = value;
-                OnPropertyChanged("printMed7");
-            }
-        }
-
-        public string PrintMed8
-        {
-            get { return printMed8; }
-            set
-            {
-                printMed8 = value;
-                OnPropertyChanged("printMed8");
-            }
-        }
-
-        public string PrintMed9
-        {
-            get { return printMed9; }
-            set
-            {
-                printMed9 = value;
-                OnPropertyChanged("printMed9");
-            }
-        }
-
-        public string PrintMed10
-        {
-            get { return printMed10; }
-            set
-            {
-                printMed10 = value;
-                OnPropertyChanged("printMed10");
-            }
-        }
 
         public ICommand ClearCommand
         {
@@ -221,39 +130,29 @@ namespace PharmacyManager.ViewModels
         {
                 ICInput = string.Empty;
                 PrintName = string.Empty;
-                PrintMed1 = string.Empty;
-                PrintMed2 = string.Empty;
-                PrintMed3 = string.Empty;
-                PrintMed4 = string.Empty;
-                PrintMed5 = string.Empty;
-                PrintMed6 = string.Empty;
-                PrintMed7 = string.Empty;
-                PrintMed8 = string.Empty;
-                PrintMed9 = string.Empty;
-                PrintMed10 = string.Empty;
-                QuantityList1.Clear();
+                //Quantity.Clear();
         }
 
      
-        public int SQuantityList1
+        public int SQuantity
         {
-            get { return _sQuantityList1;}
-            set { _sQuantityList1 = value; }
+            get { return _sQuantity;}
+            set { _sQuantity = value; }
         }
 
-        public ObservableCollection<int> QuantityList1
-        {
-            get { return quantityList1; }
-            set
-            {
-                if (quantityList1 == value)
-                {
-                    return;
-                }
-                quantityList1 = value;
-                OnPropertyChanged("quantityList1");
-            }
-        }
+        //public ObservableCollection<int> Quantityy
+        //{
+        //    get { return quantityy; }
+        //    set
+        //    {
+        //        if (quantityy == value)
+        //        {
+        //            return;
+        //        }
+        //        quantityy = value;
+        //        OnPropertyChanged("Quantity");
+        //    }
+        //}
 
 
 

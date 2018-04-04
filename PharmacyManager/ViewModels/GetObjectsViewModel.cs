@@ -8,6 +8,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows;
+using System.Collections.ObjectModel;
 
 namespace PharmacyManager.ViewModels
 {
@@ -51,6 +52,13 @@ namespace PharmacyManager.ViewModels
                 medicineList.Add(new MedicineObject(medparam[1], medparam[2], medparam[3], medparam[4]));
 
             }
+
+            xlWorkBook.Close(true, null, null);
+            xlApp.Quit();
+
+            Marshal.ReleaseComObject(xlWorkSheet);
+            Marshal.ReleaseComObject(xlWorkBook);
+            Marshal.ReleaseComObject(xlApp);
             return medicineList;
 
         }
@@ -59,12 +67,13 @@ namespace PharmacyManager.ViewModels
 
         public PatientObject GetPatientObject(string ic, List<MedicineObject> medicineList)
         {
-            
-            string[] med = new string[13];
-            string[] medName = new string[10];
-            string[] medMax = new string[10];
-            string[] medMin = new string[10];
-            string[] medUnit = new string[10];
+
+            string[] c = new string[2];
+            string patientName;
+            string medName;
+            string medMax;
+            string medMin;
+            string medUnit;
             string str;
             int rCnt;
             int cCnt;
@@ -82,28 +91,44 @@ namespace PharmacyManager.ViewModels
             cl = range.Columns.Count;
             bool isExist = false;
 
+            ObservableCollection<Medicine> _medicineList = new ObservableCollection<Medicine>();
 
             for (rCnt = 1; rCnt <= rw; rCnt++)
             {
+                
                 double catchIC = (double)(range.Cells[rCnt, 1] as Excel.Range).Value2;
                 str = catchIC.ToString();
+                
                 if (str == ic)
                 {
                     //MessageBox.Show(str);
                     for (cCnt = 2; cCnt <= cl; cCnt++)
                     {
-                        med[cCnt] = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
-                        
+                        patientName = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+
+                        if (cCnt ==2)
+                        {
+                            patientObject.Name = patientName;
+                        }
+
                         if (cCnt > 2)
-                        { 
-                            
+                        {
+                            medName = patientName;
                             foreach (var medicine in medicineList)
                             {
-                                if (med[cCnt] == medicine.Name)
+                                if (medName == medicine.Name)
                                 {
-                                    medMin[cCnt - 3] = medicine.MinQuantity;
-                                    medMax[cCnt - 3] = medicine.MaxQuantity;
-                                    medUnit[cCnt - 3] = medicine.Unit;
+                                    var _medicine = new Medicine();
+                                    medMin = medicine.MinQuantity;
+                                    medMax = medicine.MaxQuantity;
+                                    medUnit = medicine.Unit;
+                                    _medicine.Name = medName;
+                                    _medicine.Min = medMin;
+                                    _medicine.Max = medMax;
+                                    _medicine.Unit = medUnit;
+                                    _medicineList.Add(_medicine);
+                                    patientObject.medicine = _medicineList;
+                                    
                                 }
                             }
                         }
@@ -112,50 +137,6 @@ namespace PharmacyManager.ViewModels
                 }
             }
        
-            patientObject.Name = med[2];
-            patientObject.Medicine1 = med[3];
-            patientObject.Medicine2 = med[4];
-            patientObject.Medicine3 = med[5];
-            patientObject.Medicine4 = med[6];
-            patientObject.Medicine5 = med[7];
-            patientObject.Medicine6 = med[8];
-            patientObject.Medicine7 = med[9];
-            patientObject.Medicine8 = med[10];
-            patientObject.Medicine9 = med[11];
-            patientObject.Medicine10 = med[12];
-
-            patientObject.MedMin1 = medMin[0];
-            patientObject.MedMin2 = medMin[1];
-            patientObject.MedMin3 = medMin[2];
-            patientObject.MedMin4 = medMin[3];
-            patientObject.MedMin5 = medMin[4];
-            patientObject.MedMin6 = medMin[5];
-            patientObject.MedMin7 = medMin[6];
-            patientObject.MedMin8 = medMin[7];
-            patientObject.MedMin9 = medMin[8];
-            patientObject.MedMin10 = medMin[9];
-
-            patientObject.MedMax1 = medMax[0];
-            patientObject.MedMax2 = medMax[1];
-            patientObject.MedMax3 = medMax[2];
-            patientObject.MedMax4 = medMax[3];
-            patientObject.MedMax5 = medMax[4];
-            patientObject.MedMax6 = medMax[5];
-            patientObject.MedMax7 = medMax[6];
-            patientObject.MedMax8 = medMax[7];
-            patientObject.MedMax9 = medMax[8];
-            patientObject.MedMax10 = medMax[9];
-
-            patientObject.MedUnit1 = medUnit[0];
-            patientObject.MedUnit2 = medUnit[1];
-            patientObject.MedUnit3 = medUnit[2];
-            patientObject.MedUnit4 = medUnit[3];
-            patientObject.MedUnit5 = medUnit[4];
-            patientObject.MedUnit6 = medUnit[5];
-            patientObject.MedUnit7 = medUnit[6];
-            patientObject.MedUnit8 = medUnit[7];
-            patientObject.MedUnit9 = medUnit[8];
-            patientObject.MedUnit10 = medUnit[9];
 
             xlWorkBook.Close(true, null, null);
             xlApp.Quit();
