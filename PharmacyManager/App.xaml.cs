@@ -13,5 +13,6 @@ namespace PharmacyManager
     /// </summary>
     public partial class App : Application
     {
+        
     }
 }

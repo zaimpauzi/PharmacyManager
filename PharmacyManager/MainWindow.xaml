@@ -6,11 +6,18 @@
         xmlns:local="clr-namespace:PharmacyManager"
         xmlns:local1="clr-namespace:PharmacyManager.ViewModels"
         mc:Ignorable="d"
-        Title="Pharmacy Manager" Height="530" Width="525" Background="#FFFFB9B9">
+        Title="Pharmacy Manager" Height="530" Width="525" Background="#FF94C5FF">
 
     <Window.DataContext>
         <local1:PharmacyManagerViewModel/>
     </Window.DataContext>
+    
+    <Window.Resources>
+        <Style x:Key="CenterAlignmentColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -26,76 +33,39 @@
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+
         </Grid.RowDefinitions>
 
         <TextBlock Text="No. I/C : " Grid.Row="1" Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Arial Black"></TextBlock>
-        <Button x:Name="ICInput" Content="Cari"  Grid.Row="1" Grid.Column="4" FontSize="16" VerticalAlignment="Stretch" Command="{Binding Path=SearchCommand}"></Button>
-        <TextBox Text="{Binding Path=ICInput, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="2" VerticalAlignment="Stretch" Background="White"></TextBox>
+        <TextBlock Text="{Binding Path=PrintIC, Mode=OneWay}" Grid.Row="1" Grid.Column="2" FontSize="16" VerticalAlignment="Center"></TextBlock>
 
         <TextBlock Text="Nama  : " Grid.Row="2" Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Arial Black"></TextBlock>
-        <TextBox Text="{Binding Path=PrintName, Mode=OneWay}" IsReadOnly="True" Grid.Row="2" Grid.Column="2" FontSize="16" VerticalAlignment="Stretch" FontFamily="Arial Black"></TextBox>
+        <TextBlock Text="{Binding Path=PrintName, Mode=OneWay}" Grid.Row="2" Grid.Column="2" FontSize="16" VerticalAlignment="Center"></TextBlock>
 
-        <!--<DataGrid Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" AutoGenerateColumns="False" Name="myGridTest">
+        <DataGrid CanUserAddRows="False"  AutoGenerateColumns="False" ItemsSource="{Binding DataGridList}"
+                  CanUserDeleteRows="False" CanUserReorderColumns="False" 
+                  CanUserSortColumns="False"  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" FontWeight="Bold" FontSize="16" ColumnHeaderHeight="40">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Jenis Ubat" Binding="{Binding Path= ListOfMedicineName, UpdateSourceTrigger=PropertyChanged}"/>
-                <DataGridTemplateColumn Header="Quantity">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <ComboBox SelectedIndex="0" ItemsSource="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>-->
-
-        <DataGrid CanUserAddRows="True"  AutoGenerateColumns="False" ItemsSource="{Binding DataGridList}"
-                  CanUserDeleteRows="True" CanUserReorderColumns="True" 
-                  CanUserSortColumns="True"  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="11">
-
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Jenis Ubat" Binding="{Binding Path=DGMedName,UpdateSourceTrigger=PropertyChanged}"/>
-                <!--<DataGridTextColumn Header="Date of Birth" Binding="{Binding Path=DateOfBirth,UpdateSourceTrigger=PropertyChanged}"/>
-                <DataGridTextColumn Header="Address" Binding="{Binding Path=Address, UpdateSourceTrigger=PropertyChanged}"/>-->
-                <DataGridTemplateColumn Header="Quantity">
+                <DataGridTextColumn Header="Jenis Ubat" Binding="{Binding Path=DGMedName,UpdateSourceTrigger=PropertyChanged}" FontSize="14" Width="*" HeaderStyle="{StaticResource CenterAlignmentColumnHeaderStyle}" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="Kuantiti">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <ComboBox SelectedIndex="0" ItemsSource="{Binding Path=DGQuantity, UpdateSourceTrigger=PropertyChanged}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Unit" Binding="{Binding Path=DGUnit, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Unit" Binding="{Binding Path=DGUnit, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <!--<TextBlock Text="Jenis Ubat" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" FontSize="16" HorizontalAlignment="Center" FontFamily="Arial Black"></TextBlock>
-        <TextBlock Text="Kuantiti" Grid.Row="4" Grid.Column="4" FontSize="16" HorizontalAlignment="Center" FontFamily="Arial Black"></TextBlock>-->
-
-        <!--<TextBox Text="{Binding Path=PrintMed1, Mode=OneWay}" IsReadOnly="True" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" FontSize="16" VerticalAlignment="Stretch" FontFamily="Arial Black"></TextBox>
-        <ComboBox x:Name="combo1" Grid.Row="5" Grid.Column="4" HorizontalAlignment = "Stretch"  
-         VerticalAlignment = "Stretch"  ItemsSource="{Binding Path=QuantityList1}" SelectedItem="{Binding Path=SQuantityList1}" >
-            
-        </ComboBox>-->
         
-        
-        
-        
-        
-        <Button x:Name="Clear" Content="Padam"  Grid.Row="16" Grid.Column="2" FontSize="16" HorizontalAlignment="Left" Command="{Binding Path=ClearCommand}" Width="100" Height="30"/>
+        <Button x:Name="Clear" Content="Padam"  Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="4" FontSize="16" HorizontalAlignment="Left" Command="{Binding Path=ClearCommand}" Width="100" Height="30"/>
      
-        <Button x:Name="Print" Content="Cetak"  Grid.Row="16" Grid.Column="2" FontSize="16" HorizontalAlignment="Right" Width="100" Height="30"/>
+        <Button x:Name="Print" Content="Cetak"  Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" FontSize="16" HorizontalAlignment="Right" Width="100" Height="30"/>
    
 
     </Grid>

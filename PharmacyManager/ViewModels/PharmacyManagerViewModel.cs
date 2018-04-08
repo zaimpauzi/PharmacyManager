@@ -8,89 +8,71 @@ using PharmacyManager.Commands;
 using System.Windows.Input;
 using PharmacyManager.Models;
 using System.Collections.ObjectModel;
+using System.Threading;
+using System.Windows.Threading;
 
 namespace PharmacyManager.ViewModels
 {
     class PharmacyManagerViewModel : ViewModelBase
     {
-        private List<MedicineObject> MedicineList;
-        private string icInput;
-        private DelegateCommand searchCommand;
+        private List<MedicineObject> medicineList;
         private DelegateCommand clearCommand;
+        private bool canClear;
         private string printName;
+        private string printIC;
         private ObservableCollection<DataGridObject> dataGridList = new ObservableCollection<DataGridObject>();
         private int _sQuantity;
-        //private ObservableCollection<int> quantityy = new ObservableCollection<int>();
+        private Thread thread;
 
 
         //Contructor
         public PharmacyManagerViewModel()
         {
-            var GetMedicineList = new GetObjectsViewModel();  //Initialize GetObject class
-            MedicineList = GetMedicineList.GetMedicineList(); //Get list of medicine available in excel. It will store in List variable for entire application running.
-        }
-
-        public string ICInput
-        {
-            get { return icInput; }
-            set { icInput = value; }
-        }
-
-        public ICommand SearchCommand
-        {
-            get
-            {
-                if (searchCommand == null)
-                {
-                    searchCommand = new DelegateCommand(isSearch, CanSearch);
-                }
-                return searchCommand;
-            }
+            var GetObject = new GetObjectsViewModel();  //Initialize GetObject class
+            medicineList = GetObject.getMedicineList(); //Get list of medicine available in excel. It will store in List variable for entire application running.
+            thread = new Thread(GetAllObjects);
+            thread.Start();
         }
 
         private void isSearch()
         {
-          
-            var GetObject = new GetObjectsViewModel();
-            //ObservableCollection<Medicine> _listOfMedicineName = new ObservableCollection<Medicine>();
-            var Patient = GetObject.GetPatientObject(icInput, MedicineList);
-            if (Patient != null)
+            bool stillSearching = true;
+            while (stillSearching == true)
             {
+            
+                  var GetObject = new GetObjectsViewModel();
+                  string barCode = GetObject.getBarCode();
+                  var Patient = GetObject.getPatientObject(barCode, medicineList);
+                  if (Patient != null)
+                     {
                
-                ObservableCollection<int> Quantity = new ObservableCollection<int>();
-                PrintName = Patient.Name;
-                //_listOfMedicineName = Patient.medicine;
-                //foreach (Medicine medicineName in Patient.medicine)
-                //{
-                //    _listOfMedicineName.Add(medicineName.medicine);
-                //}
+                         ObservableCollection<int> Quantity = new ObservableCollection<int>();
+                         PrintName = Patient.Name;
+                         PrintIC = Patient.IC;
+                         foreach (Medicine _medicine in Patient.medicine)
+                             {
+                                  var DataGrid = new DataGridObject();
+                                  DataGrid.DGMedName = _medicine.Name;
+                                  DataGrid.DGUnit = _medicine.Unit;
+                                  Quantity = QuantityLister(Int32.Parse(_medicine.Min), Int32.Parse(_medicine.Max));
+                                  DataGrid.DGQuantity = Quantity;
+                                  DispatchService.Invoke(() =>
+                                       {
+                                           this.DataGridList.Add(DataGrid);
+                                       });
 
+                              }
+                         stillSearching = false;
+                         canClear = true;
+                      }
 
-                foreach (Medicine _medicine in Patient.medicine)
-                {
-                    var DataGrid = new DataGridObject();
-                    DataGrid.DGMedName = _medicine.Name;
-                    DataGrid.DGUnit = _medicine.Unit;
-                    Quantity = QuantityLister(Int32.Parse(_medicine.Min), Int32.Parse(_medicine.Max));
-                    DataGrid.DGQuantity = Quantity;
-                    DataGridList.Add(DataGrid);
-
-                }
-
+                  else
+                     {
+                        MessageBox.Show("TIADA DALAM REKOD", "Amaran", MessageBoxButton.OK, MessageBoxImage.Information);
+                
+                     }
             }
 
-            else
-            {
-                MessageBox.Show("TIADA DALAM REKOD", "Amaran", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-        }
-
-        private bool CanSearch()
-        {
-            if (!string.IsNullOrEmpty(this.icInput) )
-                return true;
-            else
-                return false;
         }
 
         public string PrintName
@@ -100,6 +82,16 @@ namespace PharmacyManager.ViewModels
             {
                 printName = value;
                 OnPropertyChanged("PrintName");
+            }
+        }
+
+        public string PrintIC
+        {
+            get { return printIC; }
+            set
+            {
+                printIC = value;
+                OnPropertyChanged("PrintIC");
             }
         }
 
@@ -113,14 +105,13 @@ namespace PharmacyManager.ViewModels
             }
         }
 
-
         public ICommand ClearCommand
         {
             get
             {
                 if (clearCommand == null)
                 {
-                    clearCommand = new DelegateCommand(isClear);
+                    clearCommand = new DelegateCommand(isClear, CanClear);
                 }
                 return clearCommand;
             }
@@ -128,34 +119,38 @@ namespace PharmacyManager.ViewModels
 
         private void isClear()
         {
-                ICInput = string.Empty;
-                PrintName = string.Empty;
-                //Quantity.Clear();
+            PrintName = string.Empty;
+            PrintIC = string.Empty;
+            DataGridList.Clear();
+            canClear = false;
+
+            //Restart thread            
+            thread.Abort();
+            thread = new Thread(GetAllObjects);
+            thread.Start();
+
+            //restart app
+            //System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            //Application.Current.Shutdown();
         }
 
-     
+        private bool CanClear()
+        {
+            return canClear;
+        }
+
+        private void GetAllObjects()
+        {
+            
+            isSearch();
+
+        }
+
         public int SQuantity
         {
             get { return _sQuantity;}
             set { _sQuantity = value; }
         }
-
-        //public ObservableCollection<int> Quantityy
-        //{
-        //    get { return quantityy; }
-        //    set
-        //    {
-        //        if (quantityy == value)
-        //        {
-        //            return;
-        //        }
-        //        quantityy = value;
-        //        OnPropertyChanged("Quantity");
-        //    }
-        //}
-
-
-
 
         public ObservableCollection<int> QuantityLister(int _min, int _max)
         {
@@ -168,5 +163,20 @@ namespace PharmacyManager.ViewModels
             return quantityList;
         }
 
+    }
+    public static class DispatchService
+    {
+        public static void Invoke(Action action)
+        {
+            Dispatcher dispatchObject = Application.Current.Dispatcher;
+            if (dispatchObject == null || dispatchObject.CheckAccess())
+            {
+                action();
+            }
+            else
+            {
+                dispatchObject.Invoke(action);
+            }
+        }
     }
 }

@@ -9,6 +9,8 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Collections.ObjectModel;
+using ZXing;
+using System.Drawing;
 
 namespace PharmacyManager.ViewModels
 {
@@ -16,7 +18,7 @@ namespace PharmacyManager.ViewModels
     {
         
 
-        public List<MedicineObject> GetMedicineList()
+        public List<MedicineObject> getMedicineList()
         {
             object _input;
             string[] medparam = new string[5];
@@ -65,11 +67,12 @@ namespace PharmacyManager.ViewModels
 
 
 
-        public PatientObject GetPatientObject(string ic, List<MedicineObject> medicineList)
+        public PatientObject getPatientObject(string ic, List<MedicineObject> medicineList)
         {
 
             string[] c = new string[2];
-            string patientName;
+            object patientDetail;
+            string PatientDetail;
             string medName;
             string medMax;
             string medMin;
@@ -104,16 +107,22 @@ namespace PharmacyManager.ViewModels
                     //MessageBox.Show(str);
                     for (cCnt = 2; cCnt <= cl; cCnt++)
                     {
-                        patientName = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                        patientDetail = (range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                        PatientDetail = patientDetail.ToString();
 
                         if (cCnt ==2)
                         {
-                            patientObject.Name = patientName;
+                            patientObject.Name = PatientDetail;
+                        }
+
+                        if (cCnt==3)
+                        {
+                            patientObject.IC = PatientDetail;
                         }
 
                         if (cCnt > 2)
                         {
-                            medName = patientName;
+                            medName = PatientDetail;
                             foreach (var medicine in medicineList)
                             {
                                 if (medName == medicine.Name)
@@ -154,6 +163,26 @@ namespace PharmacyManager.ViewModels
             }
         }
 
-      
+        public string getBarCode()
+        {
+            string Result=null;
+            while (Result == null)
+            {
+                // create a barcode reader instance
+                IBarcodeReader reader = new BarcodeReader();
+                // load a bitmap
+                var barcodeBitmap = (Bitmap)Bitmap.FromFile("C:\\test.jpg");
+                // detect and decode the barcode inside the bitmap
+                var result = reader.Decode(barcodeBitmap);
+                if (result != null)
+                {
+                    Result = result.Text.ToString();
+                }
+
+            }
+
+            return Result;
+        }
+
     }
 }

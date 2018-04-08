@@ -15,6 +15,8 @@ namespace PharmacyManager.Models
     {
         public string Name { get; set; }
 
+        public string IC { get; set; }
+
         public ObservableCollection<Medicine> medicine { get; set; }
 
         
