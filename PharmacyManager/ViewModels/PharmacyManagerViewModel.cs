@@ -32,6 +32,7 @@ namespace PharmacyManager.ViewModels
             medicineList = GetObject.getMedicineList(); //Get list of medicine available in excel. It will store in List variable for entire application running.
             thread = new Thread(GetAllObjects);
             thread.Start();
+            //GetAllObjects();
         }
 
         private void isSearch()
@@ -126,6 +127,7 @@ namespace PharmacyManager.ViewModels
 
             //Restart thread            
             thread.Abort();
+            //Thread.Sleep(2000);
             thread = new Thread(GetAllObjects);
             thread.Start();
 

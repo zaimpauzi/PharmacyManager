@@ -11,6 +11,10 @@ using System.Windows;
 using System.Collections.ObjectModel;
 using ZXing;
 using System.Drawing;
+using Emgu.CV;
+using Emgu.CV.UI;
+using Emgu.CV.Structure;
+using System.Threading;
 
 namespace PharmacyManager.ViewModels
 {
@@ -165,22 +169,29 @@ namespace PharmacyManager.ViewModels
 
         public string getBarCode()
         {
+            VideoCapture capture = new VideoCapture();
+            //Thread.Sleep(1000);
             string Result=null;
+            
             while (Result == null)
             {
+
+                var image = capture.QueryFrame();
+                //Thread.Sleep(1000);
+                Bitmap barcodeBitmap = image.ToImage<Bgr, Byte>().Bitmap; //Convert the emgu Image to BitmapImage 
+                //barcodeBitmap.Save("test.bmp");
+                //Bitmap barcodeBitmap = new Bitmap("C:\\test.bmp");
                 // create a barcode reader instance
                 IBarcodeReader reader = new BarcodeReader();
-                // load a bitmap
-                var barcodeBitmap = (Bitmap)Bitmap.FromFile("C:\\test.jpg");
-                // detect and decode the barcode inside the bitmap
                 var result = reader.Decode(barcodeBitmap);
+
                 if (result != null)
                 {
                     Result = result.Text.ToString();
                 }
 
             }
-
+            capture.Dispose();
             return Result;
         }
 
