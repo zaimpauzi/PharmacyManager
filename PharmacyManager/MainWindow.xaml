@@ -54,7 +54,7 @@
                 <DataGridTemplateColumn Header="Kuantiti">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <ComboBox SelectedIndex="0" ItemsSource="{Binding Path=DGQuantity, UpdateSourceTrigger=PropertyChanged}" />
+                            <ComboBox SelectedIndex="0"  SelectedItem="{Binding Path=SelectedQuantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  ItemsSource="{Binding Path=DGQuantity, UpdateSourceTrigger=PropertyChanged}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

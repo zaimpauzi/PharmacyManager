@@ -14,5 +14,7 @@ namespace PharmacyManager.Models
         public string DGUnit { get; set; }
         
         public ObservableCollection<int> DGQuantity { get; set; }
+
+        public int SelectedQuantity { get; set; }
     }
 }

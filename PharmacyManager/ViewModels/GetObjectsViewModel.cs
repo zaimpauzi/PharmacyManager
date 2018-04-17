@@ -170,24 +170,33 @@ namespace PharmacyManager.ViewModels
         public string getBarCode()
         {
             VideoCapture capture = new VideoCapture();
-            //Thread.Sleep(1000);
             string Result=null;
             
             while (Result == null)
             {
 
                 var image = capture.QueryFrame();
-                //Thread.Sleep(1000);
-                Bitmap barcodeBitmap = image.ToImage<Bgr, Byte>().Bitmap; //Convert the emgu Image to BitmapImage 
-                //barcodeBitmap.Save("test.bmp");
-                //Bitmap barcodeBitmap = new Bitmap("C:\\test.bmp");
-                // create a barcode reader instance
-                IBarcodeReader reader = new BarcodeReader();
-                var result = reader.Decode(barcodeBitmap);
-
-                if (result != null)
+                try
                 {
-                    Result = result.Text.ToString();
+                    Bitmap barcodeBitmap = image.ToImage<Bgr, Byte>().Bitmap; //Convert the emgu Image to BitmapImage 
+                    //barcodeBitmap.Save("test.bmp");
+                    //Bitmap barcodeBitmap = new Bitmap("C:\\test.bmp");
+
+                    // create a barcode reader instance
+                    IBarcodeReader reader = new BarcodeReader();
+                    var result = reader.Decode(barcodeBitmap);
+
+                    if (result != null)
+                    {
+                        Result = result.Text.ToString();
+                    }
+
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Camera Not Working!");
+                    Environment.Exit(0);
                 }
 
             }

@@ -10,6 +10,8 @@ using PharmacyManager.Models;
 using System.Collections.ObjectModel;
 using System.Threading;
 using System.Windows.Threading;
+using System.Windows.Documents;
+using System.Windows.Controls;
 
 namespace PharmacyManager.ViewModels
 {
@@ -23,7 +25,7 @@ namespace PharmacyManager.ViewModels
         private ObservableCollection<DataGridObject> dataGridList = new ObservableCollection<DataGridObject>();
         private int _sQuantity;
         private Thread thread;
-
+      
 
         //Contructor
         public PharmacyManagerViewModel()
@@ -32,6 +34,7 @@ namespace PharmacyManager.ViewModels
             medicineList = GetObject.getMedicineList(); //Get list of medicine available in excel. It will store in List variable for entire application running.
             thread = new Thread(GetAllObjects);
             thread.Start();
+            //MessageBox.Show("test");
             //GetAllObjects();
         }
 
@@ -55,6 +58,7 @@ namespace PharmacyManager.ViewModels
                                   var DataGrid = new DataGridObject();
                                   DataGrid.DGMedName = _medicine.Name;
                                   DataGrid.DGUnit = _medicine.Unit;
+                                  DataGrid.SelectedQuantity = 0;
                                   Quantity = QuantityLister(Int32.Parse(_medicine.Min), Int32.Parse(_medicine.Max));
                                   DataGrid.DGQuantity = Quantity;
                                   DispatchService.Invoke(() =>
@@ -120,6 +124,9 @@ namespace PharmacyManager.ViewModels
 
         private void isClear()
         {
+            //ObservableCollection<DataGridObject> test = new ObservableCollection<DataGridObject>();
+            //test = DataGridList;
+            //PrintData();
             PrintName = string.Empty;
             PrintIC = string.Empty;
             DataGridList.Clear();
@@ -164,6 +171,55 @@ namespace PharmacyManager.ViewModels
             }
             return quantityList;
         }
+
+        public void PrintData()
+        {
+            // Create a PrintDialog
+            PrintDialog printDlg = new PrintDialog();
+
+            // Create a FlowDocument dynamically.
+            FlowDocument doc = CreateFlowDocument();
+            doc.Name = "FlowDoc";
+
+            // Create IDocumentPaginatorSource from FlowDocument
+            IDocumentPaginatorSource idpSource = doc;
+            printDlg.ShowDialog();
+            
+            // Call PrintDocument method to send document to printer
+            printDlg.PrintDocument(idpSource.DocumentPaginator, "Hello WPF Printing.");
+        }
+
+        public FlowDocument CreateFlowDocument()
+        {
+            // Create a FlowDocument
+            FlowDocument doc = new FlowDocument();
+
+            // Create a Section
+            Section sec = new Section();
+
+            // Create first Paragraph
+            Paragraph p1 = new Paragraph();
+
+            // Create and add a new Bold, Italic and Underline
+            Bold bld = new Bold();
+            bld.Inlines.Add(new Run("First Paragraph"));
+            Italic italicBld = new Italic();
+            italicBld.Inlines.Add(bld);
+            Underline underlineItalicBld = new Underline();
+            underlineItalicBld.Inlines.Add(italicBld);
+
+            // Add Bold, Italic, Underline to Paragraph
+            p1.Inlines.Add(underlineItalicBld);
+
+            // Add Paragraph to Section
+            sec.Blocks.Add(p1);
+
+            // Add Section to FlowDocument
+            doc.Blocks.Add(sec);
+
+            return doc;
+        }
+
 
     }
     public static class DispatchService
