@@ -76,8 +76,6 @@ namespace PharmacyManager.ViewModels
 
             string[] c = new string[2];
             object medicineDetail;
-            string PatientDetail;
-            string medName;
             //string medMax;
             //string medMin;
             //string medUnit;
@@ -178,11 +176,7 @@ namespace PharmacyManager.ViewModels
                     Marshal.ReleaseComObject(xlApp);
                 }
 
-                else
-                {
-                    isExist = false;
-
-                }
+             
             }
         
 

@@ -15,43 +15,31 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_07F4497ADBC94A14906511A920FD7246"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_11DF3A8D161849FDBB35187D1C6D700F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1D389390D8F14F6AA1F69D6924B09A6D"
+        "MsmKey" = "8:_0E51CC193623476CBEDB0319C2B800B8"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_25C70220A1EE692398095CB10E0F537F"
-        "OwnerKey" = "8:_5C735202EEE24192B9E375A698D303E1"
+        "OwnerKey" = "8:_0E51CC193623476CBEDB0319C2B800B8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_25C70220A1EE692398095CB10E0F537F"
-        "OwnerKey" = "8:_F72B766ED25C41CAB326044A8C22045B"
+        "OwnerKey" = "8:_9BF367AE7F8942F4A0509FADA0CED5D9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_2A3D4A2ADA3448A4A4C3E7807D8538CE"
+        "MsmKey" = "8:_2F6E5638AA0B4F79AC35F9313A0F94AF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3C30D9461CE243A2B1C2D5E325117257"
+        "MsmKey" = "8:_2FCBF0B8AFD54E92BBA00F016B3E96DD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -63,7 +51,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_5C735202EEE24192B9E375A698D303E1"
+        "MsmKey" = "8:_60BBFBEC1A554EFAAB317736EE47A608"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -71,17 +59,17 @@
         {
         "MsmKey" = "8:_6E8D8D685A2048ECEB632BA15F83B4C4"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_6E8D8D685A2048ECEB632BA15F83B4C4"
-        "OwnerKey" = "8:_5C735202EEE24192B9E375A698D303E1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_6F65051AA8CC4326B5B2DCE7CC16DABC"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_74E808986A284DBCBDC0CEF1A42FA168"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -93,13 +81,37 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_8E336F61D0A4416A9A6AE205FD1D2168"
+        "MsmKey" = "8:_77A0B9F132404932981C83AFCE58504C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A4F519B2C11A4645863F1139B731B81B"
+        "MsmKey" = "8:_8FE3CDEF55E5459196F9A4DC55F44636"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9BF367AE7F8942F4A0509FADA0CED5D9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A12FAB4BD2DB4D0398E864CF36691123"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A43050FC71AF49F4B75518A8694F691C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_ACCEF2A30E9043ECB5F6CB6D01A1F344"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -112,13 +124,19 @@
         "Entry"
         {
         "MsmKey" = "8:_CA5F941A3262FCE440CF120FEAA3CFF8"
-        "OwnerKey" = "8:_F72B766ED25C41CAB326044A8C22045B"
+        "OwnerKey" = "8:_9BF367AE7F8942F4A0509FADA0CED5D9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_CA5F941A3262FCE440CF120FEAA3CFF8"
-        "OwnerKey" = "8:_3C30D9461CE243A2B1C2D5E325117257"
+        "OwnerKey" = "8:_2FCBF0B8AFD54E92BBA00F016B3E96DD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D00F89C9CC0A48079D935B9F0604C0A5"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -129,25 +147,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_DBD4DC5A29B547DE84B011A4F88FF1AB"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E6884330F96D4E548616B9B10F07CA93"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_F474305FFF294D86A0643B6F4772F512"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F72B766ED25C41CAB326044A8C22045B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -160,13 +160,31 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3C30D9461CE243A2B1C2D5E325117257"
+        "OwnerKey" = "8:_0E51CC193623476CBEDB0319C2B800B8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F72B766ED25C41CAB326044A8C22045B"
+        "OwnerKey" = "8:_2FCBF0B8AFD54E92BBA00F016B3E96DD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_A12FAB4BD2DB4D0398E864CF36691123"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_2F6E5638AA0B4F79AC35F9313A0F94AF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_9BF367AE7F8942F4A0509FADA0CED5D9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -178,7 +196,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_5C735202EEE24192B9E375A698D303E1"
+        "OwnerKey" = "8:_74E808986A284DBCBDC0CEF1A42FA168"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0E51CC193623476CBEDB0319C2B800B8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -205,6 +229,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -221,6 +261,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -250,50 +298,21 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_07F4497ADBC94A14906511A920FD7246"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0E51CC193623476CBEDB0319C2B800B8"
             {
-            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\zxing.xml"
-            "TargetName" = "8:zxing.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_E34C1E56FE3740E2BFFB71EDC84A38FA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_11DF3A8D161849FDBB35187D1C6D700F"
-            {
-            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\ZedGraph.xml"
-            "TargetName" = "8:ZedGraph.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_E34C1E56FE3740E2BFFB71EDC84A38FA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1D389390D8F14F6AA1F69D6924B09A6D"
-            {
-            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\PharmacyManager.exe.config"
-            "TargetName" = "8:PharmacyManager.exe.config"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Emgu.CV.UI, Version=3.4.1.2976, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_0E51CC193623476CBEDB0319C2B800B8"
+                    {
+                    "Name" = "8:Emgu.CV.UI.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\Emgu.CV.UI.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E34C1E56FE3740E2BFFB71EDC84A38FA"
             "Condition" = "8:"
@@ -337,14 +356,25 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
-            "Exclude" = "11:FALSE"
+            "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2A3D4A2ADA3448A4A4C3E7807D8538CE"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2F6E5638AA0B4F79AC35F9313A0F94AF"
             {
-            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\MedicineList.xlsx"
-            "TargetName" = "8:MedicineList.xlsx"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:ZedGraph, Version=5.1.7.430, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_2F6E5638AA0B4F79AC35F9313A0F94AF"
+                    {
+                    "Name" = "8:ZedGraph.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\ZedGraph.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E34C1E56FE3740E2BFFB71EDC84A38FA"
             "Condition" = "8:"
@@ -361,14 +391,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3C30D9461CE243A2B1C2D5E325117257"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2FCBF0B8AFD54E92BBA00F016B3E96DD"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:zxing.presentation, Version=0.16.2.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_3C30D9461CE243A2B1C2D5E325117257"
+                    "_2FCBF0B8AFD54E92BBA00F016B3E96DD"
                     {
                     "Name" = "8:zxing.presentation.dll"
                     "Attributes" = "3:512"
@@ -412,21 +442,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5C735202EEE24192B9E375A698D303E1"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_60BBFBEC1A554EFAAB317736EE47A608"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Emgu.CV.UI, Version=3.4.1.2976, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_5C735202EEE24192B9E375A698D303E1"
-                    {
-                    "Name" = "8:Emgu.CV.UI.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\Emgu.CV.UI.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\PharmacyManager.exe.config"
+            "TargetName" = "8:PharmacyManager.exe.config"
             "Tag" = "8:"
             "Folder" = "8:_E34C1E56FE3740E2BFFB71EDC84A38FA"
             "Condition" = "8:"
@@ -494,6 +513,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_74E808986A284DBCBDC0CEF1A42FA168"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Emgu.CV.World, Version=3.4.1.2976, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_74E808986A284DBCBDC0CEF1A42FA168"
+                    {
+                    "Name" = "8:Emgu.CV.World.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\Emgu.CV.World.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E34C1E56FE3740E2BFFB71EDC84A38FA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_772367B11F774E07A9F37943CC3B9ABE"
             {
             "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\x86\\opencv_ffmpeg341.dll"
@@ -514,10 +564,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8E336F61D0A4416A9A6AE205FD1D2168"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_77A0B9F132404932981C83AFCE58504C"
             {
-            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\Emgu.CV.UI.xml"
-            "TargetName" = "8:Emgu.CV.UI.xml"
+            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\Emgu.CV.World.xml"
+            "TargetName" = "8:Emgu.CV.World.xml"
             "Tag" = "8:"
             "Folder" = "8:_E34C1E56FE3740E2BFFB71EDC84A38FA"
             "Condition" = "8:"
@@ -534,10 +584,112 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A4F519B2C11A4645863F1139B731B81B"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8FE3CDEF55E5459196F9A4DC55F44636"
             {
-            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\Emgu.CV.World.xml"
-            "TargetName" = "8:Emgu.CV.World.xml"
+            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\zxing.presentation.xml"
+            "TargetName" = "8:zxing.presentation.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_E34C1E56FE3740E2BFFB71EDC84A38FA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9BF367AE7F8942F4A0509FADA0CED5D9"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:PharmacyManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_9BF367AE7F8942F4A0509FADA0CED5D9"
+                    {
+                    "Name" = "8:PharmacyManager.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\PharmacyManager.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E34C1E56FE3740E2BFFB71EDC84A38FA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A12FAB4BD2DB4D0398E864CF36691123"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:zxing, Version=0.16.2.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_A12FAB4BD2DB4D0398E864CF36691123"
+                    {
+                    "Name" = "8:zxing.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\zxing.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E34C1E56FE3740E2BFFB71EDC84A38FA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A43050FC71AF49F4B75518A8694F691C"
+            {
+            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\zxing.xml"
+            "TargetName" = "8:zxing.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_E34C1E56FE3740E2BFFB71EDC84A38FA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_ACCEF2A30E9043ECB5F6CB6D01A1F344"
+            {
+            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\Emgu.CV.UI.xml"
+            "TargetName" = "8:Emgu.CV.UI.xml"
             "Tag" = "8:"
             "Folder" = "8:_E34C1E56FE3740E2BFFB71EDC84A38FA"
             "Condition" = "8:"
@@ -601,8 +753,28 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
-            "Exclude" = "11:FALSE"
+            "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D00F89C9CC0A48079D935B9F0604C0A5"
+            {
+            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\ZedGraph.xml"
+            "TargetName" = "8:ZedGraph.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_E34C1E56FE3740E2BFFB71EDC84A38FA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D6131A9BA9964C34AA24C53E5F55F769"
@@ -625,83 +797,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DBD4DC5A29B547DE84B011A4F88FF1AB"
-            {
-            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\Database.xlsx"
-            "TargetName" = "8:Database.xlsx"
-            "Tag" = "8:"
-            "Folder" = "8:_E34C1E56FE3740E2BFFB71EDC84A38FA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E6884330F96D4E548616B9B10F07CA93"
-            {
-            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\zxing.presentation.xml"
-            "TargetName" = "8:zxing.presentation.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_E34C1E56FE3740E2BFFB71EDC84A38FA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F474305FFF294D86A0643B6F4772F512"
             {
             "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\x86\\concrt140.dll"
             "TargetName" = "8:concrt140.dll"
             "Tag" = "8:"
             "Folder" = "8:_416AFCF7B6A94D19A344CDAFAB208EA2"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F72B766ED25C41CAB326044A8C22045B"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:PharmacyManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_F72B766ED25C41CAB326044A8C22045B"
-                    {
-                    "Name" = "8:PharmacyManager.exe"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\PharmacyManager\\bin\\Debug\\PharmacyManager.exe"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_E34C1E56FE3740E2BFFB71EDC84A38FA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -795,7 +896,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Pharmacy Manager"
         "ProductCode" = "8:{B7F6EB2D-BC2D-4AF1-AC39-CB63C44F0F8C}"
-        "PackageCode" = "8:{8AD804B3-9CD0-4E86-B944-7783F9192FA4}"
+        "PackageCode" = "8:{19C88353-D440-432B-B460-CD33D0D452FC}"
         "UpgradeCode" = "8:{E97EEC40-81AD-4030-99B4-672D49966FC4}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -915,7 +1016,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_324B242FF2254BCFB36798C77E5B55D9"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_5DA53D2268A044DCB0816627EF611487"
             {
             "Name" = "8:Pharmacy Manager"
             "Arguments" = "8:"
@@ -923,7 +1024,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_F72B766ED25C41CAB326044A8C22045B"
+            "Target" = "8:_9BF367AE7F8942F4A0509FADA0CED5D9"
             "Folder" = "8:_3394F4979C344601A54227FE4D711111"
             "WorkingFolder" = "8:_E34C1E56FE3740E2BFFB71EDC84A38FA"
             "Icon" = "8:"
