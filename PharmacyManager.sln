@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PharmacyManager", "PharmacyManager\PharmacyManager.csproj", "{390DC5A8-2488-4664-B656-5628EA74D88D}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Installer\Setup\Setup.vdproj", "{60F58A61-3AA7-46A5-88D1-A44401638365}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{390DC5A8-2488-4664-B656-5628EA74D88D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{390DC5A8-2488-4664-B656-5628EA74D88D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{390DC5A8-2488-4664-B656-5628EA74D88D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60F58A61-3AA7-46A5-88D1-A44401638365}.Debug|Any CPU.ActiveCfg = Debug
+		{60F58A61-3AA7-46A5-88D1-A44401638365}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
