@@ -199,37 +199,38 @@ namespace PharmacyManager.ViewModels
 
         public string getBarCode()
         {
-            //VideoCapture capture = new VideoCapture();
+            VideoCapture capture = new VideoCapture();
             string Result=null;
             
             while (Result == null)
             {
 
-                //var image = capture.QueryFrame();
-                //try
-                //{
-                //Bitmap barcodeBitmap = image.ToImage<Bgr, Byte>().Bitmap; //Convert the emgu Image to BitmapImage 
-                //barcodeBitmap.Save("test.bmp");
-                Bitmap barcodeBitmap = new Bitmap("C:\\test.bmp");
+                var image = capture.QueryFrame();
+                try
+                {
+                    Bitmap barcodeBitmap = image.ToImage<Bgr, Byte>().Bitmap; //Convert the emgu Image to BitmapImage 
+                    //barcodeBitmap.Save("test.bmp");
+                    //Bitmap barcodeBitmap = new Bitmap("C:\\test.bmp");
 
-                // create a barcode reader instance
-                IBarcodeReader reader = new BarcodeReader();
-                var result = reader.Decode(barcodeBitmap);
-                if (result != null)
-                    {
-                    Result = result.Text.ToString();
+                    // create a barcode reader instance
+                    IBarcodeReader reader = new BarcodeReader();
+                    var result = reader.Decode(barcodeBitmap);
+                    if (result != null)
+                        {
+                            Result = result.Text.ToString();
+                        }
+
                 }
 
-                //}
-                //catch (Exception)
-                //{
+                catch (Exception)
+                {
 
-                //    MessageBox.Show("Camera Not Working!");
-                //    Environment.Exit(0);
-                //}
+                    MessageBox.Show("Camera Not Working!");
+                    Environment.Exit(0);
+                }
 
             }
-            //capture.Dispose();
+            capture.Dispose();
             return Result;
         }
 

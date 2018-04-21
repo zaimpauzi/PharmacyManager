@@ -64,8 +64,8 @@
 
         
         <Button x:Name="Clear" Content="Padam"  Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="4" FontSize="16" HorizontalAlignment="Left" Command="{Binding Path=ClearCommand}" Width="100" Height="30"/>
-     
-        <Button x:Name="Print" Content="Cetak"  Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" FontSize="16" HorizontalAlignment="Right" Width="100" Height="30"/>
+
+        <Button x:Name="Print" Content="Cetak"  Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" FontSize="16" HorizontalAlignment="Right" Command="{Binding Path=PrintCommand}" Width="100" Height="30"/>
    
 
     </Grid>

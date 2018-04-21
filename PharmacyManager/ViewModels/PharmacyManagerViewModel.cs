@@ -12,6 +12,7 @@ using System.Threading;
 using System.Windows.Threading;
 using System.Windows.Documents;
 using System.Windows.Controls;
+using System.Drawing;
 
 namespace PharmacyManager.ViewModels
 {
@@ -19,13 +20,15 @@ namespace PharmacyManager.ViewModels
     {
         private List<MedicineObject> medicineList;
         private DelegateCommand clearCommand;
+        private DelegateCommand printCommand;
         private bool canClear;
         private string printName;
         private string printIC;
         private ObservableCollection<DataGridObject> dataGridList = new ObservableCollection<DataGridObject>();
         private int _sQuantity;
         private Thread thread;
-      
+        private string barCode;
+
 
         //Contructor
         public PharmacyManagerViewModel()
@@ -45,7 +48,7 @@ namespace PharmacyManager.ViewModels
             {
             
                   var GetObject = new GetObjectsViewModel();
-                  string barCode = GetObject.getBarCode();
+                  barCode = GetObject.getBarCode();
                   var Patient = GetObject.getPatientObject(barCode);
                   if (Patient != null)
                      {
@@ -124,9 +127,6 @@ namespace PharmacyManager.ViewModels
 
         private void isClear()
         {
-            //ObservableCollection<DataGridObject> test = new ObservableCollection<DataGridObject>();
-            //test = DataGridList;
-            //PrintData();
             PrintName = string.Empty;
             PrintIC = string.Empty;
             DataGridList.Clear();
@@ -134,7 +134,6 @@ namespace PharmacyManager.ViewModels
 
             //Restart thread            
             thread.Abort();
-            //Thread.Sleep(2000);
             thread = new Thread(GetAllObjects);
             thread.Start();
 
@@ -146,6 +145,23 @@ namespace PharmacyManager.ViewModels
         private bool CanClear()
         {
             return canClear;
+        }
+
+        public ICommand PrintCommand
+        {
+            get
+            {
+                if (printCommand == null)
+                {
+                    printCommand = new DelegateCommand(isPrint, CanClear);
+                }
+                return printCommand;
+            }
+        }
+
+        private void isPrint()
+        {
+            PrintData();
         }
 
         private void GetAllObjects()
@@ -186,36 +202,110 @@ namespace PharmacyManager.ViewModels
             printDlg.ShowDialog();
             
             // Call PrintDocument method to send document to printer
-            printDlg.PrintDocument(idpSource.DocumentPaginator, "Hello WPF Printing.");
+            printDlg.PrintDocument(idpSource.DocumentPaginator, "List");
         }
 
         public FlowDocument CreateFlowDocument()
         {
+
             // Create a FlowDocument
             FlowDocument doc = new FlowDocument();
-
-            // Create a Section
-            Section sec = new Section();
-
+            doc.ColumnWidth = 180;
             // Create first Paragraph
             Paragraph p1 = new Paragraph();
+            p1.FontSize = 12;
+            p1.Inlines.Add(new Run("Farmasi Hospital Sik, Kedah"));
+          
+            // Create the Table 1
+            var table1 = new Table();
 
-            // Create and add a new Bold, Italic and Underline
-            Bold bld = new Bold();
-            bld.Inlines.Add(new Run("First Paragraph"));
-            Italic italicBld = new Italic();
-            italicBld.Inlines.Add(bld);
-            Underline underlineItalicBld = new Underline();
-            underlineItalicBld.Inlines.Add(italicBld);
+            //Create table with 2 column
+            for (int x = 0; x < 3; x++)
+            {
+                table1.Columns.Add(new TableColumn());
+            }
 
-            // Add Bold, Italic, Underline to Paragraph
-            p1.Inlines.Add(underlineItalicBld);
+            // Create and add an empty TableRowGroup to hold the table's Rows.
+            table1.RowGroups.Add(new TableRowGroup());
 
-            // Add Paragraph to Section
-            sec.Blocks.Add(p1);
+            // Add the first row.
+            table1.RowGroups[0].Rows.Add(new TableRow());
 
-            // Add Section to FlowDocument
-            doc.Blocks.Add(sec);
+            // Alias the current working row for easy reference.
+            TableRow currentRowT1 = table1.RowGroups[0].Rows[0];
+            currentRowT1.FontSize = 12;
+            
+            // Add cells with content to the second row.
+            currentRowT1.Cells.Add(new TableCell(new Paragraph(new Run("Nama"))));
+            currentRowT1.Cells.Add(new TableCell(new Paragraph(new Run(PrintName))));
+            currentRowT1.Cells[1].ColumnSpan = 2;
+            currentRowT1.Cells[1].TextAlignment = TextAlignment.Left;
+
+            table1.RowGroups[0].Rows.Add(new TableRow());
+            currentRowT1 = table1.RowGroups[0].Rows[1];
+            currentRowT1.FontSize = 12;
+            currentRowT1.Cells.Add(new TableCell(new Paragraph(new Run("No. IC"))));
+            currentRowT1.Cells.Add(new TableCell(new Paragraph(new Run(PrintIC))));
+            currentRowT1.Cells[1].ColumnSpan = 2;
+            currentRowT1.Cells[1].TextAlignment = TextAlignment.Left;
+
+            table1.RowGroups[0].Rows.Add(new TableRow());
+            currentRowT1 = table1.RowGroups[0].Rows[2];
+            currentRowT1.FontSize = 12;
+            currentRowT1.Cells.Add(new TableCell(new Paragraph(new Run("ID"))));
+            currentRowT1.Cells.Add(new TableCell(new Paragraph(new Run(barCode))));
+            currentRowT1.Cells[1].ColumnSpan = 2;
+            currentRowT1.Cells[1].TextAlignment = TextAlignment.Left;
+            
+            // Create the Table 2
+            var table2 = new Table();
+            //Create table with 3 column
+            for (int x = 0; x < 4; x++)
+            {
+                table2.Columns.Add(new TableColumn());
+            }
+
+            // Create and add an empty TableRowGroup to hold the table's Rows.
+            table2.RowGroups.Add(new TableRowGroup());
+
+            // Add the first row.
+            table2.RowGroups[0].Rows.Add(new TableRow());
+
+            // Alias the current working row for easy reference.
+            TableRow currentRowT2 = table2.RowGroups[0].Rows[0];
+            currentRowT2.FontSize = 12;
+            
+            // Add cells with content to the second row.
+            currentRowT2.Cells.Add(new TableCell(new Paragraph(new Run("Jenis Ubat"))));
+            currentRowT2.Cells.Add(new TableCell(new Paragraph(new Run(""))));
+            currentRowT2.Cells.Add(new TableCell(new Paragraph(new Run("Kuantiti"))));
+            currentRowT2.Cells.Add(new TableCell(new Paragraph(new Run(""))));
+            currentRowT2.Cells[0].ColumnSpan = 2;
+            currentRowT2.Cells[0].TextAlignment = TextAlignment.Center;
+            currentRowT2.Cells[2].ColumnSpan = 2;
+            currentRowT2.Cells[2].TextAlignment = TextAlignment.Center;
+            
+            int _row = 0;
+
+            foreach (var medListPrint in dataGridList)
+            {
+                _row = (_row + 1);
+                
+                table2.RowGroups[0].Rows.Add(new TableRow());
+                currentRowT2 = table2.RowGroups[0].Rows[_row];
+                currentRowT2.FontSize = 12;
+                currentRowT2.Cells.Add(new TableCell(new Paragraph(new Run(medListPrint.DGMedName))));
+                currentRowT2.Cells.Add(new TableCell(new Paragraph(new Run(""))));
+                currentRowT2.Cells.Add(new TableCell(new Paragraph(new Run(medListPrint.SelectedQuantity.ToString()))));
+                currentRowT2.Cells.Add(new TableCell(new Paragraph(new Run(medListPrint.DGUnit))));
+                currentRowT2.Cells[0].ColumnSpan = 2;
+                currentRowT2.Cells[0].TextAlignment = TextAlignment.Left;
+                currentRowT2.Cells[2].TextAlignment = TextAlignment.Right;
+            }
+            // Add it to the FlowDocument Blocks collection.
+            doc.Blocks.Add(p1);
+            doc.Blocks.Add(table1);
+            doc.Blocks.Add(table2);
 
             return doc;
         }
