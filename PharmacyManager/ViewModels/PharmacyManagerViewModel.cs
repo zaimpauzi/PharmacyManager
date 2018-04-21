@@ -30,8 +30,8 @@ namespace PharmacyManager.ViewModels
         //Contructor
         public PharmacyManagerViewModel()
         {
-            var GetObject = new GetObjectsViewModel();  //Initialize GetObject class
-            medicineList = GetObject.getMedicineList(); //Get list of medicine available in excel. It will store in List variable for entire application running.
+            //var GetObject = new GetObjectsViewModel();  //Initialize GetObject class
+            //medicineList = GetObject.getMedicineList(); //Get list of medicine available in excel. It will store in List variable for entire application running.
             thread = new Thread(GetAllObjects);
             thread.Start();
             //MessageBox.Show("test");
@@ -46,7 +46,7 @@ namespace PharmacyManager.ViewModels
             
                   var GetObject = new GetObjectsViewModel();
                   string barCode = GetObject.getBarCode();
-                  var Patient = GetObject.getPatientObject(barCode, medicineList);
+                  var Patient = GetObject.getPatientObject(barCode);
                   if (Patient != null)
                      {
                
@@ -59,7 +59,7 @@ namespace PharmacyManager.ViewModels
                                   DataGrid.DGMedName = _medicine.Name;
                                   DataGrid.DGUnit = _medicine.Unit;
                                   DataGrid.SelectedQuantity = 0;
-                                  Quantity = QuantityLister(Int32.Parse(_medicine.Min), Int32.Parse(_medicine.Max));
+                                  Quantity = QuantityLister(Int32.Parse(_medicine.Min), Int32.Parse(_medicine.Max), Int32.Parse(_medicine.Add));
                                   DataGrid.DGQuantity = Quantity;
                                   DispatchService.Invoke(() =>
                                        {
@@ -161,11 +161,11 @@ namespace PharmacyManager.ViewModels
             set { _sQuantity = value; }
         }
 
-        public ObservableCollection<int> QuantityLister(int _min, int _max)
+        public ObservableCollection<int> QuantityLister(int _min, int _max, int _add)
         {
-            _max = (_max + 1);
+            //_max = (_max + 1);
             ObservableCollection<int> quantityList = new ObservableCollection<int>();
-            for (int i = _min; i < _max; i++)
+            for (int i = _min; i <= _max; i += _add)
             {
                 quantityList.Add(i);
             }

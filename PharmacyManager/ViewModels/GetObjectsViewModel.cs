@@ -22,141 +22,171 @@ namespace PharmacyManager.ViewModels
     {
         
 
-        public List<MedicineObject> getMedicineList()
-        {
-            object _input;
-            string[] medparam = new string[5];
-            int rCnt;
-            int cCnt;
-            int rw = 0;
-            int cl = 0;
-            string currentDir = Environment.CurrentDirectory;
-            string filePath = "MedicineList.xlsx";
-            string fullPath = Path.Combine(currentDir, filePath);
-            var xlApp = new Excel.Application();
-            var xlWorkBook = xlApp.Workbooks.Open(fullPath, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
-            var xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-            var range = xlWorkSheet.UsedRange;
-            rw = range.Rows.Count;
-            cl = range.Columns.Count;
-            List<MedicineObject> medicineList = new List<MedicineObject>();
+        //public List<MedicineObject> getMedicineList()
+        //{
+        //    object _input;
+        //    string[] medparam = new string[5];
+        //    int rCnt;
+        //    int cCnt;
+        //    int rw = 0;
+        //    int cl = 0;
+        //    string currentDir = Environment.CurrentDirectory;
+        //    string filePath = "MedicineList.xlsx";
+        //    string fullPath = Path.Combine(currentDir, filePath);
+        //    var xlApp = new Excel.Application();
+        //    var xlWorkBook = xlApp.Workbooks.Open(fullPath, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
+        //    var xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+        //    var range = xlWorkSheet.UsedRange;
+        //    rw = range.Rows.Count;
+        //    cl = range.Columns.Count;
+        //    List<MedicineObject> medicineList = new List<MedicineObject>();
 
 
-            for (rCnt = 1; rCnt <= rw; rCnt++)
-            {
+        //    for (rCnt = 1; rCnt <= rw; rCnt++)
+        //    {
                
-                    for (cCnt = 1; cCnt <= cl; cCnt++)
-                {
+        //            for (cCnt = 1; cCnt <= cl; cCnt++)
+        //        {
                     
-                    _input = (range.Cells[rCnt, cCnt] as Excel.Range).Value2;
-                    //_input = (range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+        //            _input = (range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+        //            //_input = (range.Cells[rCnt, cCnt] as Excel.Range).Value2;
                    
-                    string input = _input.ToString();
-                    medparam[cCnt] = input;
-                }
+        //            string input = _input.ToString();
+        //            medparam[cCnt] = input;
+        //        }
 
-                medicineList.Add(new MedicineObject(medparam[1], medparam[2], medparam[3], medparam[4]));
+        //        medicineList.Add(new MedicineObject(medparam[1], medparam[2], medparam[3], medparam[4]));
 
-            }
+        //    }
 
-            xlWorkBook.Close(true, null, null);
-            xlApp.Quit();
+        //    xlWorkBook.Close(true, null, null);
+        //    xlApp.Quit();
 
-            Marshal.ReleaseComObject(xlWorkSheet);
-            Marshal.ReleaseComObject(xlWorkBook);
-            Marshal.ReleaseComObject(xlApp);
-            return medicineList;
+        //    Marshal.ReleaseComObject(xlWorkSheet);
+        //    Marshal.ReleaseComObject(xlWorkBook);
+        //    Marshal.ReleaseComObject(xlApp);
+        //    return medicineList;
 
-        }
+        //}
 
 
 
-        public PatientObject getPatientObject(string ic, List<MedicineObject> medicineList)
+        public PatientObject getPatientObject(string barCode)
         {
 
             string[] c = new string[2];
-            object patientDetail;
+            object medicineDetail;
             string PatientDetail;
             string medName;
-            string medMax;
-            string medMin;
-            string medUnit;
-            string str;
+            //string medMax;
+            //string medMin;
+            //string medUnit;
+            //string patientName;
             int rCnt;
             int cCnt;
             int rw = 0;
             int cl = 0;
-            string currentDir = Environment.CurrentDirectory;
-            string filePath = "Database.xlsx";
-            string fullPath = Path.Combine(currentDir, filePath);
+            string patientDatabaseDir = Environment.CurrentDirectory + @"\PatientDatabase";
+            string fileName = barCode + ".xlsx";
+            string fullPath = Path.Combine(patientDatabaseDir, fileName);
             var patientObject = new PatientObject();
-            var xlApp = new Excel.Application();
-            var xlWorkBook = xlApp.Workbooks.Open(fullPath, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
-            var xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-            var range = xlWorkSheet.UsedRange;
-            rw = range.Rows.Count;
-            cl = range.Columns.Count;
             bool isExist = false;
-
+            bool medicineExist = false;
             ObservableCollection<Medicine> _medicineList = new ObservableCollection<Medicine>();
+            string[] barCodeList = Directory.GetFiles(patientDatabaseDir, "*.xlsx");
 
-            for (rCnt = 1; rCnt <= rw; rCnt++)
+
+            foreach (var codeList in barCodeList)
             {
-                
-                double catchIC = (double)(range.Cells[rCnt, 1] as Excel.Range).Value2;
-                str = catchIC.ToString();
-                
-                if (str == ic)
+                if (fullPath == codeList)
                 {
-                    //MessageBox.Show(str);
-                    for (cCnt = 2; cCnt <= cl; cCnt++)
+                    var xlApp = new Excel.Application();
+                    var xlWorkBook = xlApp.Workbooks.Open(fullPath, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
+                    var xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+                    var range = xlWorkSheet.UsedRange;
+                    rw = range.Rows.Count;
+                    cl = range.Columns.Count;
+                    isExist = true;
+
+                    for (rCnt = 1; rCnt <= rw; rCnt++)
                     {
-                        patientDetail = (range.Cells[rCnt, cCnt] as Excel.Range).Value2;
-                        PatientDetail = patientDetail.ToString();
 
-                        if (cCnt ==2)
+                        object catchDetail = (range.Cells[rCnt, 2] as Excel.Range).Value2;
+                        if (rCnt == 1)
                         {
-                            patientObject.Name = PatientDetail;
+                            patientObject.Name = catchDetail.ToString();
                         }
 
-                        if (cCnt==3)
+                        if (rCnt == 2)
                         {
-                            patientObject.IC = PatientDetail;
+                            patientObject.IC = catchDetail.ToString();
                         }
 
-                        if (cCnt > 2)
+                        if (rCnt >= 4)
                         {
-                            medName = PatientDetail;
-                            foreach (var medicine in medicineList)
+                            //MessageBox.Show(str);
+                            var medicine = new Medicine();
+                            for (cCnt = 1; cCnt <= cl; cCnt++)
                             {
-                                if (medName == medicine.Name)
+                                medicineDetail = (range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+
+                                if (medicineDetail != null)
                                 {
-                                    var _medicine = new Medicine();
-                                    medMin = medicine.MinQuantity;
-                                    medMax = medicine.MaxQuantity;
-                                    medUnit = medicine.Unit;
-                                    _medicine.Name = medName;
-                                    _medicine.Min = medMin;
-                                    _medicine.Max = medMax;
-                                    _medicine.Unit = medUnit;
-                                    _medicineList.Add(_medicine);
-                                    patientObject.medicine = _medicineList;
-                                    
+                                    if (cCnt == 1)
+                                    {
+                                        medicine.Name = medicineDetail.ToString();
+                                    }
+
+                                    if (cCnt == 2)
+                                    {
+                                        medicine.Min = medicineDetail.ToString();
+                                    }
+
+                                    if (cCnt == 3)
+                                    {
+                                        medicine.Add = medicineDetail.ToString();
+                                    }
+
+                                    if (cCnt == 4)
+                                    {
+                                        medicine.Max = medicineDetail.ToString();
+                                    }
+
+                                    if (cCnt == 5)
+                                    {
+                                        medicine.Unit = medicineDetail.ToString();
+                                    }
+
+                                    medicineExist = true;
                                 }
                             }
+                            if (medicineExist)
+                            {
+                                _medicineList.Add(medicine);
+                                medicineExist = false;
+                            }
                         }
+                        
                     }
-                    isExist = true;
+
+                    patientObject.medicine = _medicineList;
+                    xlWorkBook.Close(true, null, null);
+                    xlApp.Quit();
+
+                    Marshal.ReleaseComObject(xlWorkSheet);
+                    Marshal.ReleaseComObject(xlWorkBook);
+                    Marshal.ReleaseComObject(xlApp);
+                }
+
+                else
+                {
+                    isExist = false;
+
                 }
             }
-       
+        
 
-            xlWorkBook.Close(true, null, null);
-            xlApp.Quit();
-
-            Marshal.ReleaseComObject(xlWorkSheet);
-            Marshal.ReleaseComObject(xlWorkBook);
-            Marshal.ReleaseComObject(xlApp);
+           
             if (isExist)
             {
                 return patientObject;
@@ -169,38 +199,37 @@ namespace PharmacyManager.ViewModels
 
         public string getBarCode()
         {
-            VideoCapture capture = new VideoCapture();
+            //VideoCapture capture = new VideoCapture();
             string Result=null;
             
             while (Result == null)
             {
 
-                var image = capture.QueryFrame();
-                try
-                {
-                    Bitmap barcodeBitmap = image.ToImage<Bgr, Byte>().Bitmap; //Convert the emgu Image to BitmapImage 
-                    //barcodeBitmap.Save("test.bmp");
-                    //Bitmap barcodeBitmap = new Bitmap("C:\\test.bmp");
+                //var image = capture.QueryFrame();
+                //try
+                //{
+                //Bitmap barcodeBitmap = image.ToImage<Bgr, Byte>().Bitmap; //Convert the emgu Image to BitmapImage 
+                //barcodeBitmap.Save("test.bmp");
+                Bitmap barcodeBitmap = new Bitmap("C:\\test.bmp");
 
-                    // create a barcode reader instance
-                    IBarcodeReader reader = new BarcodeReader();
-                    var result = reader.Decode(barcodeBitmap);
-
-                    if (result != null)
+                // create a barcode reader instance
+                IBarcodeReader reader = new BarcodeReader();
+                var result = reader.Decode(barcodeBitmap);
+                if (result != null)
                     {
-                        Result = result.Text.ToString();
-                    }
-
+                    Result = result.Text.ToString();
                 }
-                catch (Exception)
-                {
 
-                    MessageBox.Show("Camera Not Working!");
-                    Environment.Exit(0);
-                }
+                //}
+                //catch (Exception)
+                //{
+
+                //    MessageBox.Show("Camera Not Working!");
+                //    Environment.Exit(0);
+                //}
 
             }
-            capture.Dispose();
+            //capture.Dispose();
             return Result;
         }
 

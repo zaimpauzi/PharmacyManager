@@ -29,6 +29,8 @@ namespace PharmacyManager.Models
 
         public string Min { get; set; }
 
+        public string Add { get; set; }
+
         public string Max { get; set; }
 
         public string Unit { get; set; }

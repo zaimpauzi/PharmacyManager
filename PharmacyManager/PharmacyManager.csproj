@@ -111,7 +111,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Database.xlsx" />
+    <None Include="123456.xlsx" />
     <None Include="MedicineList.xlsx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -156,8 +156,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(ProjectDir)Database.xlsx" "$(TargetDir)"
-copy "$(ProjectDir)MedicineList.xlsx" "$(TargetDir)"</PostBuildEvent>
+    <PostBuildEvent>mkdir "$(TargetDir)PatientDatabase"
+copy "$(ProjectDir)123456.xlsx" "$(TargetDir)PatientDatabase"</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\EMGU.CV.3.4.1.2976\build\EMGU.CV.targets" Condition="Exists('..\packages\EMGU.CV.3.4.1.2976\build\EMGU.CV.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
